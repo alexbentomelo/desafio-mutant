@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Desafio Mutant</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <script src="/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/angular/angular.min.js"></script>
+  </head>
+
+  <body ng-app="desafioMutantApp" id="desafioMutantApp" style="padding-top: 5rem;">
+    <main role="main" class="container" ng-controller="desafioMutantController">
+
+      <div ng-if="!dados">
+        <h1>Aguarde...</h1>
+      </div>
+
+      <div ng-if="erro">{{ erro }}</div>
+
+      <div ng-if="dados">
+
+        <div class="row">
+
+          <div class="col-6">
+            <h2>Website de todos os usu&aacute;rios</h2><br>
+            <div class="card" style="width: 18rem;">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item" ng-repeat="website in dados.websites">
+                  {{ website }}
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <h2>Usu&aacute;rios morando em suite</h2><br>
+            <div class="card" style="width: 18rem;">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item" ng-repeat="suite in dados.usuariosMorandoEmSuite">
+                  {{ suite }}
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+        <br><hr><br>
+
+        <h2>Usu&aacute;rios em ordem alfab&eacute;tica</h2><br>
+        <table class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Nome</th>
+              <th scope="col">E-mail</th>
+              <th scope="col">Empresa</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="usuario in dados.nomeEmailEmpresa">
+              <td>{{ usuario.nome }}</td>
+              <td>{{ usuario.email }}</td>
+              <td>{{ usuario.empresa }}</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+    </main>
+  </body>
+
+  <script type="text/javascript">
+    angular.module('desafioMutantApp', []).controller('desafioMutantController', function($scope, $http) {
+      $http.get('/api/usuarios').then(
+        function (response) { $scope.dados = response.data; },
+        function (err) { $scope.erro = 'Ocorreu um erro ao buscar dados.'; }
+      );
+    });
+  </script>
+
+</html>
