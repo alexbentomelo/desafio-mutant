@@ -48,8 +48,9 @@ docker run -p 80:8080 desafio-mutant
 ```
 Após a mensagem que a aplicação iniciou, abra o seu navegador favorito e entre em `http://localhost` (sem porta mesmo).
 
-# E os testes unitários?
+# Testes unitários nada, né?
 Não vi necessidade pois escrevi a aplicação sem uma camada Service, fiz tudo na Rest pela simplicidade das regras e tudo na mesma requisição.
 
 # E cadê a instância do Vagrant rodando?
-Não achei como fazê-lo, então subi no Heroku. Segue: `https:\\desafio-mutant-node.herokuapp.com`
+Não achei como fazê-lo, então subi no [Heroku](https:\\desafio-mutant-node.herokuapp.com), espero que seja válido.
+O Bonsai Elastic Search foi utilizado nessa instância do Heroku.
