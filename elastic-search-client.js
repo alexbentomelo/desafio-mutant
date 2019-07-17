@@ -1,5 +1,5 @@
 const elasticSearchClient = new require('elasticsearch').Client({
-  host: 'localhost:9200',
+  host: process.env.URL_ES,
   log: 'info'
 })
 
