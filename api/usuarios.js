@@ -19,18 +19,20 @@ const getUsuariosMorandoEmSuite = (usuarios) => usuarios
   .map(u => u.username)
 
 module.exports = {
-  Rest: require('express')().get('/', (req, res) => {
-    require('request')(url, { json: true }, (err, response, usuarios) => {
+  Rest: require('express')()
+    .get('/', (req, res) => {
+      require('request')(url, { json: true }, (err, response, usuarios) => {
 
-      if (err) res.status(500).send(err.message)
-      const jsonResposta = {
-        websites: getWebsites(usuarios),
-        nomeEmailEmpresa: getUsuariosOrdenadosNome(usuarios),
-        usuariosMorandoEmSuite: getUsuariosMorandoEmSuite(usuarios)
-      }
-      esClient.salvarConsultar(jsonResposta)
-      res.send(jsonResposta)
+        if (err) res.status(500).send(err.message)
+        const jsonResposta = {
+          websites: getWebsites(usuarios),
+          nomeEmailEmpresa: getUsuariosOrdenadosNome(usuarios),
+          usuariosMorandoEmSuite: getUsuariosMorandoEmSuite(usuarios)
+        }
+        esClient.salvarConsultar(jsonResposta)
+        res.send(jsonResposta)
 
+      })
     })
-  })
+    .get('/teste', (req, res) => res.json('App funcionando!'))
 }
