@@ -1,3 +1,5 @@
+const esClient = require('./../elastic-search-client')
+
 const url = 'https://jsonplaceholder.typicode.com/users'
 
 const getWebsites = (usuarios) => usuarios.map(u => u.website)
@@ -26,6 +28,7 @@ module.exports = {
         nomeEmailEmpresa: getUsuariosOrdenadosNome(usuarios),
         usuariosMorandoEmSuite: getUsuariosMorandoEmSuite(usuarios)
       }
+      esClient.salvarConsultar(jsonResposta)
       res.send(jsonResposta)
 
     })
