@@ -52,5 +52,5 @@ Após a mensagem que a aplicação iniciou, abra o seu navegador favorito e entr
 Não vi necessidade pois escrevi a aplicação sem uma camada Service, fiz tudo na Rest pela simplicidade das regras e tudo na mesma requisição.
 
 # E cadê a instância do Vagrant rodando?
-Não achei como fazê-lo, então subi no [Heroku](https:\\desafio-mutant-node.herokuapp.com), espero que seja válido.
+Não achei como fazê-lo, então subi no [Heroku](https:\\desafio-mutant-node.herokuapp.com) em `https:\\desafio-mutant-node.herokuapp.com`, espero que seja válido.
 O Bonsai Elastic Search foi utilizado nessa instância do Heroku.
